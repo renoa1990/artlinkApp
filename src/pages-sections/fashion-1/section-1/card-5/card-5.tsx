@@ -7,7 +7,7 @@ import { currency } from "lib";
 // STYLED COMPONENT
 import { StyledGrid } from "./styles";
 // IMPORT IMAGE
-import imgUrl from "../../../../../public/assets/images/products/paper-bag.png";
+import imgUrl from "assets/images/products/paper-bag.png";
 
 export default function Card5() {
   return (

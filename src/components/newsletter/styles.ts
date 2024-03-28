@@ -2,7 +2,7 @@ import styled from "@mui/material/styles/styled";
 
 // styled components
 export const Wrapper = styled("div", {
-  shouldForwardProp: (prop) => prop !== "img"
+  shouldForwardProp: (prop) => prop !== "img",
 })<{ img: string }>(({ theme, img }) => ({
   top: "50%",
   padding: 0,
@@ -20,23 +20,25 @@ export const Wrapper = styled("div", {
     zIndex: 2,
     padding: 24,
     textAlign: "center",
-    position: "relative"
+    position: "relative",
   },
   ".clear-btn": {
     top: 8,
     right: 8,
     zIndex: 2,
     position: "absolute",
-    color: theme.palette.grey[900]
+    color: theme.palette.grey[900],
   },
   ".emailInput": {
     marginBottom: 16,
     "& input": { padding: 16, textAlign: "center" },
-    "& .MuiOutlinedInput-notchedOutline": { borderColor: theme.palette.grey[300] }
+    "& .MuiOutlinedInput-notchedOutline": {
+      borderColor: theme.palette.grey[300],
+    },
   },
   [theme.breakpoints.between("sm", "md")]: {
     padding: 24,
-    maxWidth: 620
+    maxWidth: 620,
   },
   [theme.breakpoints.up("md")]: {
     padding: 32,
@@ -52,12 +54,12 @@ export const Wrapper = styled("div", {
       left: 0,
       zIndex: 1,
       position: "absolute",
-      ...(theme.direction === "rtl" && {
+      ...{
         right: 0,
         marginRight: "auto",
         backgroundPosition: "right",
-        transform: "rotateX(180deg) rotateZ(180deg)"
-      })
-    }
-  }
+        transform: "rotateX(180deg) rotateZ(180deg)",
+      },
+    },
+  },
 }));

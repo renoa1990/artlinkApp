@@ -140,7 +140,7 @@ export const marketShareChartOptions = (theme: Theme): ApexOptions => ({
 
 export const analyticsChartOptions = (
   theme: Theme,
-  categories: any,
+  categories: any
 ): ApexOptions => ({
   chart: {
     background: "transparent",
@@ -169,7 +169,7 @@ export const analyticsChartOptions = (
     show: true,
     max: 100000,
     tickAmount: 6,
-    opposite: theme.direction === "rtl",
+    opposite: true,
     labels: {
       style: { fontSize: "14px", colors: theme.palette.grey[600] },
       formatter: (value) => `${(value / 1000).toFixed(0)}K`,

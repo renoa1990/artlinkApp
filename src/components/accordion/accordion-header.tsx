@@ -8,7 +8,7 @@ import FlexBox from "components/flex-box/flex-box";
 
 // STYLED COMPONENT
 const RootContainer = styled(FlexBox, {
-  shouldForwardProp: (prop) => prop !== "open"
+  shouldForwardProp: (prop) => prop !== "open",
 })<{ open: number }>(({ open, theme }) => ({
   alignItems: "center",
   padding: ".5rem 1rem",
@@ -16,10 +16,10 @@ const RootContainer = styled(FlexBox, {
   ".caret": {
     transition: "transform 250ms ease-in-out",
     transform: `rotate(${open ? "90deg" : "0deg"})`,
-    ...(theme.direction === "rtl" && {
-      transform: `rotate(${open ? "90deg" : "180deg"})`
-    })
-  }
+    ...{
+      transform: `rotate(${open ? "90deg" : "180deg"})`,
+    },
+  },
 }));
 
 // =================================================================

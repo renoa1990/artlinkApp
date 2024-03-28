@@ -42,7 +42,7 @@ export default function TicketCard({ ticket }: Props) {
             fontSize="small"
             sx={{
               color: "grey.500",
-              transform: ({ direction }) => `rotate(${direction === "rtl" ? "180deg" : "0deg"})`
+              transform: ({ direction }) => `rotate(${"180deg"})`,
             }}
           />
         </IconButton>

@@ -15,13 +15,16 @@ import { H6 } from "../Typography";
 import Scrollbar from "../scrollbar/scrollbar";
 import FlexBox from "../flex-box/flex-box";
 // GLOBAL CUSTOM HOOK
-import useSettings from "hooks/useSettings";
 // STYLED COMPONENTS
-import { BodyWrapper, MainContainer, StyledAvatar, StyledIconButton } from "./styles";
+import {
+  BodyWrapper,
+  MainContainer,
+  StyledAvatar,
+  StyledIconButton,
+} from "./styles";
 
 export default function Setting() {
   const { push } = useRouter();
-  const { updateSettings, settings } = useSettings();
   const [showBody, setShowBody] = useState(false);
 
   return (
@@ -37,7 +40,8 @@ export default function Setting() {
         <BodyWrapper showBody={showBody ? 1 : 0}>
           <Scrollbar sx={{ maxHeight: showBody ? "calc(100vh - 200px)" : 0 }}>
             <FlexBox gap={2}>
-              <Button
+              \dddd?
+              {/* <Button
                 fullWidth
                 onClick={() => updateSettings({ direction: "rtl" })}
                 color={settings.direction === "rtl" ? "primary" : "secondary"}
@@ -51,7 +55,7 @@ export default function Setting() {
                 color={settings.direction === "ltr" ? "primary" : "secondary"}
                 variant={settings.direction === "ltr" ? "contained" : "outlined"}>
                 LTR
-              </Button>
+              </Button> */}
             </FlexBox>
 
             <Divider sx={{ my: 3 }} />
@@ -62,7 +66,11 @@ export default function Setting() {
 
             <FlexBox gap={2} flexWrap="wrap">
               {demos.map((demo) => (
-                <StyledAvatar key={demo.id} src={demo.img} onClick={() => push(demo.path)} />
+                <StyledAvatar
+                  key={demo.id}
+                  src={demo.img}
+                  onClick={() => push(demo.path)}
+                />
               ))}
             </FlexBox>
           </Scrollbar>
@@ -73,19 +81,39 @@ export default function Setting() {
 }
 
 const demos = [
-  { id: 12, path: "/furniture-2", img: "/assets/images/landing/home/furniture-2.jpg" },
-  { id: 13, path: "/gadget-2", img: "/assets/images/landing/home/gadget-2.png" },
+  {
+    id: 12,
+    path: "/furniture-2",
+    img: "/assets/images/landing/home/furniture-2.jpg",
+  },
+  {
+    id: 13,
+    path: "/gadget-2",
+    img: "/assets/images/landing/home/gadget-2.png",
+  },
   { id: 14, path: "/medical", img: "/assets/images/landing/home/medical.png" },
-  { id: 5, path: "/fashion-3", img: "/assets/images/landing/home/fashion-3.jpg" },
+  {
+    id: 5,
+    path: "/fashion-3",
+    img: "/assets/images/landing/home/fashion-3.jpg",
+  },
   { id: 0, path: "/market-1", img: "/assets/images/landing/page-1.png" },
   { id: 1, path: "/market-2", img: "/assets/images/landing/home/market-2.jpg" },
   { id: 9, path: "/grocery-1", img: "/assets/images/landing/grocery1.png" },
   { id: 2, path: "/grocery-2", img: "/assets/images/landing/page-2.png" },
   { id: 10, path: "/grocery-3", img: "/assets/images/landing/grocery3.png" },
   { id: 3, path: "/fashion-1", img: "/assets/images/landing/page-3.png" },
-  { id: 4, path: "/fashion-2", img: "/assets/images/landing/home/fashion-2.jpg" },
+  {
+    id: 4,
+    path: "/fashion-2",
+    img: "/assets/images/landing/home/fashion-2.jpg",
+  },
   { id: 6, path: "/gadget-1", img: "/assets/images/landing/page-4.png" },
   { id: 7, path: "/furniture-1", img: "/assets/images/landing/furniture.png" },
   { id: 8, path: "/gift-shop", img: "/assets/images/landing/gift-shop.png" },
-  { id: 11, path: "/health-beauty", img: "/assets/images/landing/healthbeauty.png" }
+  {
+    id: 11,
+    path: "/health-beauty",
+    img: "/assets/images/landing/healthbeauty.png",
+  },
 ];

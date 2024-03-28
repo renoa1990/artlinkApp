@@ -8,7 +8,7 @@ import styled from "@mui/material/styles/styled";
 // STYLED COMPONENTS
 const CardWrapper = styled(Box)({
   overflow: "hidden",
-  position: "relative"
+  position: "relative",
 });
 
 const CardContent = styled("div")(({ theme }) => ({
@@ -20,7 +20,7 @@ const CardContent = styled("div")(({ theme }) => ({
   position: "absolute",
   flexDirection: "column",
   justifyContent: "center",
-  ...(theme.direction === "rtl" && { left: "auto", right: 32, textAlign: "right" })
+  ...{ left: "auto", right: 32, textAlign: "right" },
 }));
 
 // ========================================================
@@ -31,7 +31,12 @@ interface Props extends BoxProps {
 }
 // ========================================================
 
-export default function BannerCard({ img, children, imageFull, ...props }: Props) {
+export default function BannerCard({
+  img,
+  children,
+  imageFull,
+  ...props
+}: Props) {
   return (
     <CardWrapper {...props}>
       <Image
@@ -39,7 +44,11 @@ export default function BannerCard({ img, children, imageFull, ...props }: Props
         width={330}
         height={239}
         alt="category"
-        style={{ width: "100%", objectFit: "cover", height: imageFull ? "100%" : "auto" }}
+        style={{
+          width: "100%",
+          objectFit: "cover",
+          height: imageFull ? "100%" : "auto",
+        }}
       />
       <CardContent>{children}</CardContent>
     </CardWrapper>

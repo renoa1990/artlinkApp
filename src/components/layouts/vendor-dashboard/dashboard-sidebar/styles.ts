@@ -139,7 +139,7 @@ const ChevronRightIcon = styled(ChevronRight, {
   transform: collapsed ? "0deg" : "rotate(90deg)",
   transition: "transform 0.3s cubic-bezier(0, 0, 0.2, 1) 0ms",
   ...(compact && { display: "none", width: 0 }),
-  ...(collapsed && direction === "rtl" && { transform: "rotate(180deg)" }),
+  ...(collapsed && { transform: "rotate(180deg)" }),
 }));
 
 export {

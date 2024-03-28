@@ -23,7 +23,7 @@ export const AdWrapper = styled(FlexBox)(({ theme }) => ({
     zIndex: 3,
     content: "''",
     position: "absolute",
-    border: "1px dashed #fff"
+    border: "1px dashed #fff",
   },
 
   ".text-wrapper": {
@@ -31,7 +31,7 @@ export const AdWrapper = styled(FlexBox)(({ theme }) => ({
     zIndex: 5,
     overflow: "hidden",
     whiteSpace: "nowrap",
-    textOverflow: "hidden"
+    textOverflow: "hidden",
   },
 
   ".slide-text": {
@@ -41,17 +41,17 @@ export const AdWrapper = styled(FlexBox)(({ theme }) => ({
     whiteSpace: "nowrap",
     textOverflow: "hidden",
     textTransform: "uppercase",
-    animation: `${slideX} 30s infinite linear 1s`
+    animation: `${slideX} 30s infinite linear 1s`,
   },
 
   ".slide-text-bold": {
     fontWeight: 700,
     whiteSpace: "nowrap",
     textOverflow: "hidden",
-    textTransform: "uppercase"
+    textTransform: "uppercase",
   },
 
-  [theme.breakpoints.down("sm")]: { flexDirection: "column" }
+  [theme.breakpoints.down("sm")]: { flexDirection: "column" },
 }));
 
 export const AdTitle1 = styled(H3)(({ theme }) => ({
@@ -69,11 +69,11 @@ export const AdTitle1 = styled(H3)(({ theme }) => ({
     content: "''",
     position: "absolute",
     transform: "rotate(23deg)",
-    top: theme.direction === "rtl" ? -16 : -36,
-    border: `70px solid ${theme.palette.grey[100]}`
+    top: -16,
+    border: `70px solid ${theme.palette.grey[100]}`,
   },
   [theme.breakpoints.down("sm")]: {
     marginBottom: 16,
-    "::after": { display: "none" }
-  }
+    "::after": { display: "none" },
+  },
 }));

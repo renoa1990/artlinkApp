@@ -15,27 +15,40 @@ import navigation from "data/navbarNavigation";
 import { StyledNavLink, NAV_LINK_STYLES, ChildNavListWrapper } from "../styles";
 // DATA TYPES
 import { NavList } from "../types";
+import { useTranslation } from "react-i18next";
 
 export default function NavigationList() {
+  const { t } = useTranslation();
+
   const renderNestedNav = (list: any[] = [], isRoot = false) => {
     return list.map((nav: NavList) => {
       if (isRoot) {
         // SHOW MEGA MENU
         if (nav.megaMenu) {
-          return <MegaMenu key={nav.title} title={nav.title} menuList={nav.child as any} />;
+          return (
+            <MegaMenu
+              key={nav.title}
+              title={t(nav.title)}
+              menuList={nav.child as any}
+            />
+          );
         }
 
         // SHOW MEGA MENU WITH SUB ITEMS
         if (nav.megaMenuWithSub) {
           return (
-            <CategoryBasedMenu key={nav.title} title={nav.title} menuList={nav.child as any} />
+            <CategoryBasedMenu
+              key={nav.title}
+              title={t(nav.title)}
+              menuList={nav.child as any}
+            />
           );
         }
 
         if (nav.url) {
           return (
             <StyledNavLink href={nav.url} key={nav.title}>
-              {nav.title}
+              {t(nav.title)}
             </StyledNavLink>
           );
         }
@@ -47,13 +60,22 @@ export default function NavigationList() {
               alignItems="center"
               position="relative"
               flexDirection="column"
-              sx={{ "&:hover": { "& > .child-nav-item": { display: "block" } } }}>
+              sx={{
+                "&:hover": { "& > .child-nav-item": { display: "block" } },
+              }}
+            >
               <FlexBox alignItems="flex-end" gap={0.3} sx={NAV_LINK_STYLES}>
-                {nav.title} <KeyboardArrowDown sx={{ color: "grey.500", fontSize: "1.1rem" }} />
+                {nav.title}{" "}
+                <KeyboardArrowDown
+                  sx={{ color: "grey.500", fontSize: "1.1rem" }}
+                />
               </FlexBox>
 
               <ChildNavListWrapper className="child-nav-item">
-                <BazaarCard elevation={3} sx={{ mt: 2.5, py: 1, minWidth: 100 }}>
+                <BazaarCard
+                  elevation={3}
+                  sx={{ mt: 2.5, py: 1, minWidth: 100 }}
+                >
                   {renderNestedNav(nav.child)}
                 </BazaarCard>
               </ChildNavListWrapper>

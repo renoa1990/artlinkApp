@@ -41,10 +41,9 @@ const Carousel = forwardRef<Slider, Props>((props, ref) => {
     dots,
     arrows,
     slidesToShow,
-    rtl: theme.direction === "rtl",
     ...CarouselArrows(arrowStyles),
     ...CarouselDots({ dotColor, sx: dotStyles }),
-    ...others
+    ...others,
   };
 
   return (

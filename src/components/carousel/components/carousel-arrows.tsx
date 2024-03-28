@@ -16,12 +16,13 @@ function NextArrow({ onClick, sx }: ArrowProps) {
   const { direction } = useTheme();
 
   return (
-    <ArrowButton onClick={onClick} className="slick-arrow next" right={0} sx={{ ...sx }}>
-      {direction === "rtl" ? (
-        <ArrowBack fontSize="small" color="inherit" />
-      ) : (
-        <ArrowForward fontSize="small" color="inherit" />
-      )}
+    <ArrowButton
+      onClick={onClick}
+      className="slick-arrow next"
+      right={0}
+      sx={{ ...sx }}
+    >
+      <ArrowBack fontSize="small" color="inherit" />
     </ArrowButton>
   );
 }
@@ -30,12 +31,13 @@ function PrevArrow({ onClick, sx }: ArrowProps) {
   const { direction } = useTheme();
 
   return (
-    <ArrowButton onClick={onClick} className="slick-arrow prev" left={0} sx={{ ...sx }}>
-      {direction === "rtl" ? (
-        <ArrowForward fontSize="small" color="inherit" />
-      ) : (
-        <ArrowBack fontSize="small" color="inherit" />
-      )}
+    <ArrowButton
+      onClick={onClick}
+      className="slick-arrow prev"
+      left={0}
+      sx={{ ...sx }}
+    >
+      <ArrowForward fontSize="small" color="inherit" />
     </ArrowButton>
   );
 }
@@ -43,6 +45,6 @@ function PrevArrow({ onClick, sx }: ArrowProps) {
 export default function CarouselArrows(sx?: SxProps<Theme>) {
   return {
     nextArrow: <NextArrow sx={sx} />,
-    prevArrow: <PrevArrow sx={sx} />
+    prevArrow: <PrevArrow sx={sx} />,
   };
 }

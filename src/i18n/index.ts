@@ -6,7 +6,7 @@ import { resources } from "./resource";
 
 i18next.use(initReactI18next).init({
   resources,
-  lng: "en",
-  fallbackLng: "en",
+  lng: "ko",
+  fallbackLng: "ko",
   interpolation: { escapeValue: false },
 });

@@ -9,6 +9,7 @@ import EyeToggleButton from "../components/eye-toggle-button";
 import usePasswordVisible from "../use-password-visible";
 // GLOBAL CUSTOM COMPONENTS
 import BazaarTextField from "components/BazaarTextField";
+import { useTranslation } from "react-i18next";
 
 // ==============================================================
 interface Props {
@@ -18,24 +19,28 @@ interface Props {
 
 const LoginPageView = ({ closeDialog }: Props) => {
   const { visiblePassword, togglePasswordVisible } = usePasswordVisible();
-
+  const { t } = useTranslation();
   // LOGIN FORM FIELDS INITIAL VALUES
   const initialValues = { email: "", password: "" };
 
   // LOGIN FORM FIELD VALIDATION SCHEMA
   const validationSchema = yup.object().shape({
-    password: yup.string().required("Password is required"),
-    email: yup.string().email("invalid email").required("Email is required")
+    password: yup.string().required(t("패스워드를 입력하세요")),
+    email: yup
+      .string()
+      .email(t("이메일 형식이 아닙니다"))
+      .required(t("이메일을 입력하세요")),
   });
 
-  const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
-    initialValues,
-    validationSchema,
-    onSubmit: (values) => {
-      console.log(values);
-      closeDialog?.();
-    }
-  });
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues,
+      validationSchema,
+      onSubmit: (values) => {
+        console.log(values);
+        closeDialog?.();
+      },
+    });
 
   return (
     <form onSubmit={handleSubmit}>
@@ -49,7 +54,7 @@ const LoginPageView = ({ closeDialog }: Props) => {
         onBlur={handleBlur}
         value={values.email}
         onChange={handleChange}
-        label="Email or Phone Number"
+        label={t("이메일")}
         placeholder="exmple@mail.com"
         error={!!touched.email && !!errors.email}
         helperText={(touched.email && errors.email) as string}
@@ -60,7 +65,7 @@ const LoginPageView = ({ closeDialog }: Props) => {
         fullWidth
         size="small"
         name="password"
-        label="Password"
+        label={t("패스워드")}
         autoComplete="on"
         variant="outlined"
         onBlur={handleBlur}
@@ -71,12 +76,23 @@ const LoginPageView = ({ closeDialog }: Props) => {
         error={!!touched.password && !!errors.password}
         helperText={(touched.password && errors.password) as string}
         InputProps={{
-          endAdornment: <EyeToggleButton show={visiblePassword} click={togglePasswordVisible} />
+          endAdornment: (
+            <EyeToggleButton
+              show={visiblePassword}
+              click={togglePasswordVisible}
+            />
+          ),
         }}
       />
 
-      <Button fullWidth type="submit" color="primary" variant="contained" size="large">
-        Login
+      <Button
+        fullWidth
+        type="submit"
+        color="primary"
+        variant="contained"
+        size="large"
+      >
+        {t("로그인")}
       </Button>
     </form>
   );

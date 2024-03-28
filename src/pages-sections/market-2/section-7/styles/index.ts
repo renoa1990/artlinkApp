@@ -26,19 +26,19 @@ export const BannerWrapper = styled("div")(({ theme }) => ({
     backgroundPosition: "center left",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(/assets/images/banners/long-banner.jpg)`,
-    ...(theme.direction === "rtl" && {
-      transform: "rotateX(180deg) rotateZ(180deg)"
-    })
+    ...{
+      transform: "rotateX(180deg) rotateZ(180deg)",
+    },
   },
 
   [theme.breakpoints.down("md")]: {
     gap: "1rem",
     flexDirection: "column",
-    justifyContent: "center"
+    justifyContent: "center",
   },
 
   ".content": {
     flex: 1,
-    textAlign: "center"
-  }
+    textAlign: "center",
+  },
 }));

@@ -16,11 +16,18 @@ import Navigation from "./navigation";
  *  6. support-tickets page
  */
 
-export default function CustomerDashboardLayout({ children }: PropsWithChildren) {
+export default function CustomerDashboardLayout({
+  children,
+}: PropsWithChildren) {
   return (
     <Container className="mt-2 mb-2">
       <Grid container spacing={3}>
-        <Grid item lg={3} xs={12} sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
+        <Grid
+          item
+          lg={3}
+          xs={12}
+          sx={{ display: { xs: "none", sm: "none", md: "block" } }}
+        >
           <Navigation />
         </Grid>
 

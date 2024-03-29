@@ -20,7 +20,9 @@ const RegisterPageView = () => {
 
   // COMMON INPUT PROPS FOR TEXT FIELD
   const inputProps = {
-    endAdornment: <EyeToggleButton show={visiblePassword} click={togglePasswordVisible} />
+    endAdornment: (
+      <EyeToggleButton show={visiblePassword} click={togglePasswordVisible} />
+    ),
   };
 
   // REGISTER FORM FIELDS INITIAL VALUES
@@ -29,7 +31,7 @@ const RegisterPageView = () => {
     email: "",
     password: "",
     re_password: "",
-    agreement: false
+    agreement: false,
   };
 
   // REGISTER FORM FIELD VALIDATION SCHEMA
@@ -48,16 +50,17 @@ const RegisterPageView = () => {
         "You have to agree with our Terms and Conditions!",
         (value) => value === true
       )
-      .required("You have to agree with our Terms and Conditions!")
+      .required("You have to agree with our Terms and Conditions!"),
   });
 
-  const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
-    initialValues,
-    validationSchema,
-    onSubmit: (values) => {
-      console.log(values);
-    }
-  });
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues,
+      validationSchema,
+      onSubmit: (values) => {
+        console.log(values);
+      },
+    });
 
   return (
     <form onSubmit={handleSubmit}>
@@ -66,12 +69,12 @@ const RegisterPageView = () => {
         fullWidth
         name="name"
         size="small"
-        label="Full Name"
+        label="이름"
         variant="outlined"
         onBlur={handleBlur}
         value={values.name}
         onChange={handleChange}
-        placeholder="Ralph Awards"
+        placeholder="홍길동"
         error={!!touched.name && !!errors.name}
         helperText={(touched.name && errors.name) as string}
       />
@@ -86,10 +89,25 @@ const RegisterPageView = () => {
         onBlur={handleBlur}
         value={values.email}
         onChange={handleChange}
-        label="Email or Phone Number"
+        label="이메일"
         placeholder="exmple@mail.com"
         error={!!touched.email && !!errors.email}
         helperText={(touched.email && errors.email) as string}
+      />
+      <BazaarTextField
+        mb={1.5}
+        fullWidth
+        name="phone"
+        size="small"
+        type="number"
+        variant="outlined"
+        onBlur={handleBlur}
+        value={values.email}
+        onChange={handleChange}
+        label="휴대폰"
+        placeholder="0100000000"
+        // error={!!touched.phone && !!errors.phone}
+        // helperText={(touched.phone && errors.phone) as string}
       />
 
       <BazaarTextField
@@ -97,7 +115,7 @@ const RegisterPageView = () => {
         fullWidth
         size="small"
         name="password"
-        label="Password"
+        label="패스워드"
         variant="outlined"
         autoComplete="on"
         placeholder="*********"
@@ -116,7 +134,7 @@ const RegisterPageView = () => {
         autoComplete="on"
         name="re_password"
         variant="outlined"
-        label="Retype Password"
+        label="패스워드 확인"
         placeholder="*********"
         onBlur={handleBlur}
         onChange={handleChange}
@@ -131,18 +149,34 @@ const RegisterPageView = () => {
         name="agreement"
         className="agreement"
         onChange={handleChange}
-        control={<Checkbox size="small" color="secondary" checked={values.agreement || false} />}
+        control={
+          <Checkbox
+            size="small"
+            color="secondary"
+            checked={values.agreement || false}
+          />
+        }
         label={
-          <FlexBox flexWrap="wrap" alignItems="center" justifyContent="flex-start" gap={1}>
-            <Span display={{ sm: "inline-block", xs: "none" }}>By signing up, you agree to</Span>
-            <Span display={{ sm: "none", xs: "inline-block" }}>Accept Our</Span>
-            <BoxLink title="Terms & Condition" href="/" />
+          <FlexBox
+            flexWrap="wrap"
+            alignItems="center"
+            justifyContent="flex-start"
+            gap={1}
+          >
+            <BoxLink title="이용약관" href="/" />
+            <Span display={"inline-block"}>에 동의합니다</Span>
           </FlexBox>
         }
       />
 
-      <Button fullWidth type="submit" color="primary" variant="contained" size="large">
-        Create Account
+      <Button
+        fullWidth
+        type="submit"
+        color="primary"
+        variant="contained"
+        size="large"
+      >
+        회원가입
       </Button>
     </form>
   );

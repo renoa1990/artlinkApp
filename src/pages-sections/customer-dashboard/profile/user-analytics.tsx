@@ -15,10 +15,10 @@ type Props = { user: User };
 
 export default function UserAnalytics({ user }: Props) {
   const INFO_LIST = [
-    { title: "16", subtitle: "All Orders" },
-    { title: "02", subtitle: "Awaiting Payments" },
-    { title: "00", subtitle: "Awaiting Shipment" },
-    { title: "01", subtitle: "Awaiting Delivery" }
+    { title: "16", subtitle: "등록한 공연" },
+    { title: "02", subtitle: "찜 목록" },
+    { title: "00", subtitle: "문의하기" },
+    { title: "01", subtitle: "Awaiting Delivery" },
   ];
 
   return (
@@ -30,23 +30,28 @@ export default function UserAnalytics({ user }: Props) {
             height: "100%",
             display: "flex",
             p: "1rem 1.5rem",
-            alignItems: "center"
-          }}>
-          <Avatar alt={user.name.firstName} src={user.avatar} sx={{ height: 64, width: 64 }} />
+            alignItems: "center",
+          }}
+        >
+          <Avatar
+            alt={"user.name.firstName"}
+            src={user.avatar}
+            sx={{ height: 64, width: 64 }}
+          />
 
           <FlexBetween flexWrap="wrap" flex={1}>
             <div>
-              <H5>{`${user.name.firstName} ${user.name.lastName}`}</H5>
+              <H5>개발자</H5>
 
               <FlexBox alignItems="center" gap={1}>
-                <Paragraph color="grey.600">Balance:</Paragraph>
-                <Paragraph color="primary.main">{currency(500)}</Paragraph>
+                <Paragraph color="grey.600">republic of korea</Paragraph>
+                <Paragraph color="primary.main"></Paragraph>
               </FlexBox>
             </div>
 
-            <Paragraph color="grey.600" letterSpacing={3}>
+            {/* <Paragraph color="grey.600" letterSpacing={3}>
               SILVER USER
-            </Paragraph>
+            </Paragraph> */}
           </FlexBetween>
         </Card>
       </Grid>
@@ -60,8 +65,9 @@ export default function UserAnalytics({ user }: Props) {
                 display: "flex",
                 p: "1rem 1.25rem",
                 alignItems: "center",
-                flexDirection: "column"
-              }}>
+                flexDirection: "column",
+              }}
+            >
               <H3 color="primary.main" my={0} fontWeight={600}>
                 {item.title}
               </H3>

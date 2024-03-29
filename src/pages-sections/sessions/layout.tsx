@@ -26,8 +26,8 @@ export default function AuthLayout({ children }: PropsWithChildren) {
   if (pathname === "/register") {
     BOTTOM_CONTENT = (
       <FlexRowCenter gap={1} mt={3}>
-        Already have an account?
-        <BoxLink title="Login" href="/login" />
+        계정이 있으신가요?
+        <BoxLink title="로그인" href="/login" />
       </FlexRowCenter>
     );
   }
@@ -51,7 +51,7 @@ export default function AuthLayout({ children }: PropsWithChildren) {
         {children}
 
         {/* SOCIAL BUTTON AREA */}
-        <SocialButtons />
+        {/* <SocialButtons /> */}
 
         {/* RENDER BOTTOM CONTENT BASED ON CONDITION */}
         {BOTTOM_CONTENT}

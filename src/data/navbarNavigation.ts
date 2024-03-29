@@ -135,7 +135,7 @@ const navbarNavigation = [
     title: "문의하기",
     megaMenu: false,
     megaMenuWithSub: false,
-    url: "/cantact",
+    url: "/contact",
   },
 ];
 

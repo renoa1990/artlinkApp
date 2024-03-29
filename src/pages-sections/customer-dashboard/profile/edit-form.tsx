@@ -21,7 +21,7 @@ export default function ProfileEditForm({ user }: Props) {
     contact: user.phone || "",
     last_name: user.name.lastName || "",
     first_name: user.name.firstName || "",
-    birth_date: new Date(user.dateOfBirth) || new Date()
+    birth_date: new Date(user.dateOfBirth) || new Date(),
   };
 
   const VALIDATION_SCHEMA = yup.object().shape({
@@ -29,7 +29,7 @@ export default function ProfileEditForm({ user }: Props) {
     last_name: yup.string().required("Last name is required"),
     email: yup.string().email("invalid email").required("Email is required"),
     contact: yup.string().required("Contact is required"),
-    birth_date: yup.date().required("Birth date is required")
+    birth_date: yup.date().required("Birth date is required"),
   });
 
   const handleFormSubmit = async (values: typeof INITIAL_VALUES) => {
@@ -40,15 +40,24 @@ export default function ProfileEditForm({ user }: Props) {
     <Formik
       onSubmit={handleFormSubmit}
       initialValues={INITIAL_VALUES}
-      validationSchema={VALIDATION_SCHEMA}>
-      {({ values, errors, touched, handleChange, handleBlur, handleSubmit, setFieldValue }) => (
+      validationSchema={VALIDATION_SCHEMA}
+    >
+      {({
+        values,
+        errors,
+        touched,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        setFieldValue,
+      }) => (
         <form onSubmit={handleSubmit}>
           <Grid container spacing={3}>
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                name="first_name"
-                label="First Name"
+                name="name"
+                label="이름"
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.first_name}
@@ -56,26 +65,12 @@ export default function ProfileEditForm({ user }: Props) {
                 helperText={(touched.first_name && errors.first_name) as string}
               />
             </Grid>
-
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                name="last_name"
-                label="Last Name"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.last_name}
-                error={!!touched.last_name && !!errors.last_name}
-                helperText={(touched.last_name && errors.last_name) as string}
-              />
-            </Grid>
-
-            <Grid item md={6} xs={12}>
-              <TextField
-                fullWidth
-                name="email"
-                type="email"
-                label="Email"
+                name="country"
+                type="text"
+                label="국가"
                 onBlur={handleBlur}
                 value={values.email}
                 onChange={handleChange}
@@ -87,8 +82,23 @@ export default function ProfileEditForm({ user }: Props) {
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                label="Phone"
-                name="contact"
+                name="email"
+                type="email"
+                label="이메일"
+                onBlur={handleBlur}
+                value={values.email}
+                onChange={handleChange}
+                error={!!touched.email && !!errors.email}
+                helperText={(touched.email && errors.email) as string}
+              />
+            </Grid>
+
+            <Grid item md={6} xs={12}>
+              <TextField
+                fullWidth
+                label="연락처"
+                type={"number"}
+                name="phone"
                 onBlur={handleBlur}
                 value={values.contact}
                 onChange={handleChange}
@@ -97,27 +107,9 @@ export default function ProfileEditForm({ user }: Props) {
               />
             </Grid>
 
-            <Grid item md={6} xs={12}>
-              <DatePicker
-                label="Birth Date"
-                value={values.birth_date}
-                onChange={(newValue) => setFieldValue("birth_date", newValue)}
-                slots={{ textField: TextField }}
-                slotProps={{
-                  textField: {
-                    sx: { mb: 1 },
-                    size: "small",
-                    fullWidth: true,
-                    error: Boolean(!!touched.birth_date && !!errors.birth_date),
-                    helperText: (touched.birth_date && errors.birth_date) as string
-                  }
-                }}
-              />
-            </Grid>
-
             <Grid item xs={12}>
               <Button type="submit" variant="contained" color="primary">
-                Save Changes
+                저장
               </Button>
             </Grid>
           </Grid>

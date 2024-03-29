@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ResetPasswordPageView } from "pages-sections/sessions/page-view";
+import ChangePasswordPage from "pages-sections/sessions/page-view/change-password";
 
 export const metadata: Metadata = {
   title: "Reset Password - Bazaar Next.js E-commerce Template",
@@ -8,6 +8,6 @@ export const metadata: Metadata = {
   keywords: ["e-commerce", "e-commerce template", "next.js", "react"],
 };
 
-export default function ResetPassword() {
-  return <ResetPasswordPageView />;
+export default function ChangePassword() {
+  return <ChangePasswordPage />;
 }

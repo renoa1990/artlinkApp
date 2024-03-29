@@ -5,7 +5,7 @@ import { Fragment } from "react";
 // MUI ICON COMPONENTS
 import Place from "@mui/icons-material/Place";
 import Person from "@mui/icons-material/Person";
-import CreditCard from "@mui/icons-material/CreditCard";
+import PasswordIcon from "@mui/icons-material/Password";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import ShoppingBagOutlined from "@mui/icons-material/ShoppingBagOutlined";
 // GLOBAL CUSTOM COMPONENTS
@@ -50,7 +50,10 @@ export default function Navigation() {
 const MENUS = [
   {
     title: "내정보",
-    list: [{ href: "/profile", title: "내 프로필", Icon: Person, count: 3 }],
+    list: [
+      { href: "/profile", title: "내 프로필", Icon: Person },
+      { href: "/change-password", title: "패스워드 변경", Icon: PasswordIcon },
+    ],
   },
   {
     title: "대시보드",

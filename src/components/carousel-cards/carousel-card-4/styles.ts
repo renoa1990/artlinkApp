@@ -4,7 +4,7 @@ import styled from "@mui/material/styles/styled";
 
 // STYLED COMPONENT
 export const CardWrapper = styled("div", {
-  shouldForwardProp: (prop) => prop !== "img" && prop !== "mode"
+  shouldForwardProp: (prop) => prop !== "img" && prop !== "mode",
 })<{ img: string; mode: string }>(({ theme, img, mode }) => ({
   minHeight: 500,
   display: "flex",
@@ -14,12 +14,12 @@ export const CardWrapper = styled("div", {
   backgroundImage: `url(${img})`,
   backgroundColor: mode === "dark" ? "#000" : "#fff",
   color: mode === "light" ? theme.palette.dark.main : "#fff",
-  ".content": theme.direction === "rtl" ? { paddingRight: 80 } : { paddingLeft: 80 },
+  ".content": { paddingRight: 80 },
   [theme.breakpoints.down("md")]: {
     padding: 24,
     textAlign: "center",
     backgroundImage: "none",
     justifyContent: "center",
-    ".content": theme.direction === "rtl" ? { paddingRight: 0 } : { paddingLeft: 0 }
-  }
+    ".content": { paddingRight: 0 },
+  },
 }));

@@ -13,7 +13,7 @@ export const StyledCard = styled(Card)(({ theme }) => ({
   borderRadius: "8px",
   position: "relative",
   padding: "2rem 4rem",
-  [theme.breakpoints.down("sm")]: { padding: "2rem" }
+  [theme.breakpoints.down("sm")]: { padding: "2rem" },
 }));
 
 export const StyledContent = styled("div")(({ theme }) => ({
@@ -21,7 +21,7 @@ export const StyledContent = styled("div")(({ theme }) => ({
   flexWrap: "wrap",
   position: "relative",
   padding: "4rem 6rem",
-  [theme.breakpoints.down("sm")]: { padding: "2rem 4rem" }
+  [theme.breakpoints.down("sm")]: { padding: "2rem 4rem" },
 }));
 
 export const StyledQuote = styled(Quote)(({ theme }) => ({
@@ -32,20 +32,20 @@ export const StyledQuote = styled(Quote)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: { fontSize: "3rem" },
   "&.first": {
     top: 0,
-    ...(theme.direction === "rtl" ? { right: 0 } : { left: 0 })
+    ...{ right: 0 },
   },
   "&.last": {
     bottom: 0,
     transform: "rotate(180deg)",
-    ...(theme.direction === "rtl" ? { left: 0 } : { right: 0 })
-  }
+    ...{ left: 0 },
+  },
 }));
 
 export const StyledAvatar = styled(Avatar)({
   width: 64,
   height: 64,
   margin: "auto",
-  display: "block"
+  display: "block",
 });
 
 export const StyledGridContainer = styled(Grid)(({ theme }) => ({
@@ -55,6 +55,6 @@ export const StyledGridContainer = styled(Grid)(({ theme }) => ({
     gap: 16,
     textAlign: "center",
     flexDirection: "column",
-    justifyContent: "center"
-  }
+    justifyContent: "center",
+  },
 }));

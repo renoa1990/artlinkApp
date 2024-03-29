@@ -10,17 +10,15 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFnsV3";
 import merge from "lodash/merge";
 
-import useSettings from "hooks/useSettings";
 import customThemeOptions from "./theme-options";
 import NextAppDirEmotionCacheProvider from "./emotion-cache";
 
 const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const pathname = usePathname();
-  const { settings } = useSettings();
 
   const themeOptions = customThemeOptions(pathname);
 
-  const mergedThemeOptions = merge({}, { ...themeOptions, direction: settings.direction });
+  const mergedThemeOptions = merge({}, { ...themeOptions });
 
   let theme = createTheme(mergedThemeOptions as ThemeOptions);
 

@@ -56,7 +56,7 @@ export default function NavLink3({
           sx={{
             fontSize: 14,
             flexShrink: 0,
-            transform: ({ direction }) => `rotate(${direction === "rtl" ? "180deg" : "0deg"})`,
+            transform: ({ direction }) => `rotate(${"180deg"})`,
           }}
         />
       </Span>

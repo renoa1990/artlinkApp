@@ -19,8 +19,8 @@ export default function ProfilePageView({ user }: Props) {
       {/* TITLE HEADER AREA */}
       <DashboardHeader
         Icon={Person}
-        title="My Profile"
-        buttonText="Edit Profile"
+        title="내 정보"
+        buttonText="정보 수정"
         href={`/profile/${user.id}`}
       />
 

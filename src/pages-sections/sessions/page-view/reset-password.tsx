@@ -18,30 +18,37 @@ const ResetPassword = () => {
 
   // FORM FIELD VALIDATION SCHEMA
   const validationSchema = yup.object().shape({
-    email: yup.string().email("invalid email").required("Email is required")
+    email: yup.string().email("invalid email").required("Email is required"),
   });
 
-  const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
-    initialValues,
-    validationSchema,
-    onSubmit: (values) => {
-      console.log(values);
-    }
-  });
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues,
+      validationSchema,
+      onSubmit: (values) => {
+        console.log(values);
+      },
+    });
 
   return (
     <Fragment>
       <H3 mb={3} textAlign="center">
-        Reset your password
+        패스워드 찾기
       </H3>
 
       {/* FORM AREA */}
-      <Box onSubmit={handleSubmit} component="form" display="flex" flexDirection="column" gap={2}>
+      <Box
+        onSubmit={handleSubmit}
+        component="form"
+        display="flex"
+        flexDirection="column"
+        gap={2}
+      >
         <TextField
           fullWidth
           name="email"
           type="email"
-          label="Email"
+          label="이메일"
           onBlur={handleBlur}
           value={values.email}
           onChange={handleChange}
@@ -50,14 +57,14 @@ const ResetPassword = () => {
         />
 
         <Button fullWidth type="submit" color="primary" variant="contained">
-          Reset
+          리셋
         </Button>
       </Box>
 
       {/* BOTTOM LINK AREA */}
       <FlexRowCenter mt={3} justifyContent="center" gap={1}>
-        Don&apos;t have an account?
-        <BoxLink title="Register" href="/register" />
+        계정이 없으신가요?
+        <BoxLink title="회원가입" href="/register" />
       </FlexRowCenter>
     </Fragment>
   );

@@ -9,7 +9,6 @@ import ArrowRight from "@mui/icons-material/ArrowRight";
 import { H2 } from "../Typography";
 import { FlexBetween, FlexBox } from "../flex-box";
 // GLOBAL CUSTOM HOOK
-import useSettings from "hooks/useSettings";
 
 // ===================================================
 interface Props {
@@ -20,8 +19,6 @@ interface Props {
 // ===================================================
 
 export default function SectionHeader({ title, seeMoreLink, icon }: Props) {
-  const { settings } = useSettings();
-
   return (
     <FlexBetween mb={3}>
       <FlexBox alignItems="center" gap={1}>
@@ -33,11 +30,7 @@ export default function SectionHeader({ title, seeMoreLink, icon }: Props) {
         <Link href={seeMoreLink}>
           <FlexBox alignItems="center" color="grey.600">
             View all
-            {settings.direction === "ltr" ? (
-              <ArrowRight fontSize="small" color="inherit" />
-            ) : (
-              <ArrowLeft fontSize="small" color="inherit" />
-            )}
+            <ArrowRight fontSize="small" color="inherit" />
           </FlexBox>
         </Link>
       ) : null}

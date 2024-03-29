@@ -23,8 +23,14 @@ import useHeader from "../hooks/use-header";
 
 export default function MobileHeader() {
   const { state } = useCart();
-  const { dialogOpen, sidenavOpen, searchBarOpen, toggleDialog, toggleSearchBar, toggleSidenav } =
-    useHeader();
+  const {
+    dialogOpen,
+    sidenavOpen,
+    searchBarOpen,
+    toggleDialog,
+    toggleSearchBar,
+    toggleSidenav,
+  } = useHeader();
 
   const ICON_STYLE = { color: "grey.600", fontSize: 20 };
 
@@ -38,7 +44,11 @@ export default function MobileHeader() {
 
         {/* MIDDLE CONTENT - LOGO */}
         <Link href="/">
-          <Image height={44} src="/assets/images/bazaar-black-sm.svg" alt="logo" />
+          <Image
+            height={44}
+            src="/assets/images/artlink-logo-black-sm.png"
+            alt="logo"
+          />
         </Link>
 
         {/* RIGHT CONTENT - LOGIN, CART, SEARCH BUTTON */}
@@ -60,7 +70,12 @@ export default function MobileHeader() {
       </FlexBetween>
 
       {/* SEARCH FORM DRAWER */}
-      <Drawer open={searchBarOpen} anchor="top" onClose={toggleSearchBar} sx={{ zIndex: 9999 }}>
+      <Drawer
+        open={searchBarOpen}
+        anchor="top"
+        onClose={toggleSearchBar}
+        sx={{ zIndex: 9999 }}
+      >
         <Box width="auto" padding={2} height="100vh">
           <FlexBetween mb={1}>
             <Paragraph>Search to Bazaar</Paragraph>

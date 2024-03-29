@@ -9,11 +9,11 @@ export const CardWrapper = styled(Box)({
   overflow: "hidden",
   position: "relative",
   "& img": { transition: "0.3s" },
-  ":hover": { img: { transform: "scale(1.1)" } }
+  ":hover": { img: { transform: "scale(1.1)" } },
 });
 
 export const CardContent = styled(Box, {
-  shouldForwardProp: (props) => props !== "contentAlign"
+  shouldForwardProp: (props) => props !== "contentAlign",
 })<{ contentAlign: "right" | "left" }>(({ contentAlign, theme }) => ({
   top: 0,
   zIndex: 1,
@@ -23,10 +23,14 @@ export const CardContent = styled(Box, {
   position: "absolute",
   flexDirection: "column",
   justifyContent: "center",
-  ...(contentAlign === "left" ? { left: 32 } : { right: 32, alignItems: "flex-end" }),
-  ...(theme.direction === "rtl" && {
-    ...(contentAlign === "left" ? { right: 32, alignItems: "flex-end" } : { left: 32 })
-  })
+  ...(contentAlign === "left"
+    ? { left: 32 }
+    : { right: 32, alignItems: "flex-end" }),
+  ...{
+    ...(contentAlign === "left"
+      ? { right: 32, alignItems: "flex-end" }
+      : { left: 32 }),
+  },
 }));
 
 export const CardLink = styled("span")({
@@ -42,6 +46,6 @@ export const CardLink = styled("span")({
     height: "2px",
     transition: "0.3s",
     position: "absolute",
-    backgroundColor: "white"
-  }
+    backgroundColor: "white",
+  },
 });

@@ -11,26 +11,26 @@ export const NAV_LINK_STYLES = {
   cursor: "pointer",
   transition: "color 150ms ease-in-out",
   "&:hover": { color: "primary.main" },
-  "&:last-child": { marginRight: 0 }
+  "&:last-child": { marginRight: 0 },
 };
 
 export const StyledNavLink = styled(NavLink)({ ...NAV_LINK_STYLES });
 
 export const ParentNav = styled(Box, {
-  shouldForwardProp: (prop) => prop !== "active"
+  shouldForwardProp: (prop) => prop !== "active",
 })<{ active: number }>(({ theme, active }) => ({
   position: "relative",
   "&:hover": {
     color: theme.palette.primary.main,
-    "& > .parent-nav-item": { display: "block" }
+    "& > .parent-nav-item": { display: "block" },
   },
-  ...(active && { color: theme.palette.primary.main })
+  ...(active && { color: theme.palette.primary.main }),
 }));
 
 type Args = { left: boolean; right: boolean };
 
 export const ParentNavItem = styled("div", {
-  shouldForwardProp: (prop) => prop !== "left" && prop !== "right"
+  shouldForwardProp: (prop) => prop !== "left" && prop !== "right",
 })<Args>(({ theme, left, right }) => ({
   top: 0,
   zIndex: 5,
@@ -39,39 +39,39 @@ export const ParentNavItem = styled("div", {
   display: "none",
   position: "absolute",
   // [theme.breakpoints.down(1640)]: { right: "100%", left: "auto", paddingRight: 8 }
-  ...(right && { right: "100%", left: "auto", paddingRight: 8 })
+  ...(right && { right: "100%", left: "auto", paddingRight: 8 }),
 }));
 
 export const NavBarWrapper = styled(BazaarCard, {
-  shouldForwardProp: (prop) => prop !== "border"
+  shouldForwardProp: (prop) => prop !== "border",
 })<{ border: number }>(({ theme, border }) => ({
   height: "60px",
   display: "block",
   borderRadius: "0px",
   position: "relative",
   ...(border && { borderBottom: `1px solid ${theme.palette.grey[200]}` }),
-  [theme.breakpoints.down(1150)]: { display: "none" }
+  [theme.breakpoints.down(1150)]: { display: "none" },
 }));
 
 export const InnerContainer = styled(Container)({
   height: "100%",
   display: "flex",
   alignItems: "center",
-  justifyContent: "space-between"
+  justifyContent: "space-between",
 });
 
 export const CategoryMenuButton = styled(Button)(({ theme }) => ({
   width: 278,
   borderRadius: 4,
   backgroundColor: theme.palette.grey[100],
-  ...(theme.direction === "rtl" && { ".dropdown-icon": { rotate: "180deg" } }),
+  ...{ ".dropdown-icon": { rotate: "180deg" } },
   ".prefix": {
     gap: 8,
     flex: 1,
     display: "flex",
     alignItems: "center",
-    color: theme.palette.grey[800]
-  }
+    color: theme.palette.grey[800],
+  },
 }));
 
 export const ChildNavListWrapper = styled("div")({
@@ -80,5 +80,5 @@ export const ChildNavListWrapper = styled("div")({
   top: "100%",
   display: "none",
   position: "absolute",
-  transform: "translate(-50%, 0%)"
+  transform: "translate(-50%, 0%)",
 });

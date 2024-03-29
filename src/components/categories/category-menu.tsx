@@ -4,14 +4,14 @@ import CategoryList from "./category-list";
 
 // STYLED COMPONENT
 const Wrapper = styled("div", {
-  shouldForwardProp: (prop) => prop !== "open"
+  shouldForwardProp: (prop) => prop !== "open",
 })<{ open: boolean }>(({ open, theme: { direction } }) => ({
   cursor: "pointer",
   position: "relative",
   "& .dropdown-icon": {
     transition: "all 250ms ease-in-out",
-    transform: `rotate(${open ? (direction === "rtl" ? "-90deg" : "90deg") : "0deg"})`
-  }
+    transform: `rotate(${open ? "-90deg" : "0deg"})`,
+  },
 }));
 
 // ===========================================================

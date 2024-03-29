@@ -50,7 +50,7 @@ export default function FashionTwoPageView() {
       <Newsletter />
 
       {/* SETTINGS IS USED ONLY FOR DEMO, YOU CAN REMOVE THIS */}
-      <Setting />
+      {/* <Setting /> */}
     </div>
   );
 }

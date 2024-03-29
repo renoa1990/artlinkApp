@@ -13,22 +13,16 @@ interface Props {
 }
 // ==========================================================
 
-export default function Navbar({ border, elevation = 2, hideCategories = false }: Props) {
+export default function Navbar({
+  border,
+  elevation = 2,
+  hideCategories = false,
+}: Props) {
   return (
     <NavBarWrapper hoverEffect={false} elevation={elevation} border={border}>
-      {hideCategories ? (
-        <InnerContainer sx={{ justifyContent: "center" }}>
-          <NavigationList />
-        </InnerContainer>
-      ) : (
-        <InnerContainer>
-          {/* CATEGORY MEGA MENU */}
-          <Categories />
-
-          {/* HORIZONTAL MENU */}
-          <NavigationList />
-        </InnerContainer>
-      )}
+      <InnerContainer sx={{ justifyContent: "center" }}>
+        <NavigationList />
+      </InnerContainer>
     </NavBarWrapper>
   );
 }

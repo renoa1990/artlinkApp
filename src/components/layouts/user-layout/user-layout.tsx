@@ -17,7 +17,7 @@ import { MobileNavigationBar } from "components/mobile-navigation";
  *  5. SHOPS, SHOP-DETAILS
  */
 
-export default function ShopLayout1({ children }: PropsWithChildren) {
+export default function UserLayout({ children }: PropsWithChildren) {
   const [isFixed, setIsFixed] = useState(false);
   const toggleIsFixed = useCallback((fixed: boolean) => setIsFixed(fixed), []);
 

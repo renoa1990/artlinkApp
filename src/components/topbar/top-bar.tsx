@@ -14,6 +14,7 @@ import Twitter from "@mui/icons-material/Twitter";
 import Facebook from "@mui/icons-material/Facebook";
 import Instagram from "@mui/icons-material/Instagram";
 import ExpandMore from "@mui/icons-material/ExpandMore";
+import YouTubeIcon from "@mui/icons-material/YouTube";
 // GLOBAL CUSTOM COMPONENTS
 import { Span } from "components/Typography";
 import BazaarMenu from "components/BazaarMenu";
@@ -29,14 +30,15 @@ interface LanguageOption {
 
 // LANGUAGE OPTIONS
 const languageOptions: LanguageOption = {
+  ko: { title: "KO", value: "ko" },
   en: { title: "EN", value: "en" },
-  es: { title: "DE", value: "de" }
 };
 
 const socialLinks = [
   { id: 1, Icon: Twitter, url: "#" },
   { id: 2, Icon: Facebook, url: "#" },
-  { id: 3, Icon: Instagram, url: "#" }
+  { id: 3, Icon: Instagram, url: "#" },
+  { id: 4, Icon: YouTubeIcon, url: "#" },
 ];
 
 // ===========================================
@@ -65,13 +67,17 @@ export default function Topbar({ bgColor }: Props) {
                 color: "white",
                 fontWeight: 700,
                 backgroundColor: "primary.main",
-                "& .MuiChip-label": { pl: ".8rem", pr: ".8rem" }
+                "& .MuiChip-label": { pl: ".8rem", pr: ".8rem" },
               }}
             />
-            <Span className="title">{t("Free Express Shipping")}</Span>
+            <Span className="title">{t("아트링크에 오신것을 환영합니다")}</Span>
           </FlexBox>
 
-          <IconButton disableRipple className="expand" onClick={() => setExpand((state) => !state)}>
+          <IconButton
+            disableRipple
+            className="expand"
+            onClick={() => setExpand((state) => !state)}
+          >
             {expand ? <Remove /> : <Add />}
           </IconButton>
         </FlexBetween>
@@ -84,13 +90,17 @@ export default function Topbar({ bgColor }: Props) {
                 <Span className="menuTitle">{selectedLanguage.title}</Span>
                 <ExpandMore fontSize="inherit" />
               </TouchRipple>
-            }>
+            }
+          >
             {Object.keys(languageOptions).map((language: string) => (
               <MenuItem
                 className="menuItem"
                 key={languageOptions[language].title}
-                onClick={() => handleChangeLanguage(language)}>
-                <Span className="menuTitle">{languageOptions[language].title}</Span>
+                onClick={() => handleChangeLanguage(language)}
+              >
+                <Span className="menuTitle">
+                  {languageOptions[language].title}
+                </Span>
               </MenuItem>
             ))}
           </BazaarMenu>

@@ -9,7 +9,7 @@ const BOX_STYLE = {
   display: "flex",
   borderRadius: 0,
   boxShadow: "none",
-  alignItems: "center"
+  alignItems: "center",
 };
 
 export const LeftCard = styled(Card)(({ theme }) => ({
@@ -20,14 +20,14 @@ export const LeftCard = styled(Card)(({ theme }) => ({
     zIndex: 1,
     paddingInline: 20,
     position: "absolute",
-    ...(theme.direction === "rtl" ? { right: 20, textAlign: "right" } : { left: 20 })
+    ...{ right: 20, textAlign: "right" },
   },
   ".img-wrapper": {
     right: 0,
     display: "flex",
-    position: "absolute"
+    position: "absolute",
   },
-  [theme.breakpoints.down("sm")]: { marginTop: "2rem" }
+  [theme.breakpoints.down("sm")]: { marginTop: "2rem" },
 }));
 
 export const RightCard = styled(Card)(({ theme }) => ({
@@ -39,19 +39,19 @@ export const RightCard = styled(Card)(({ theme }) => ({
     zIndex: 1,
     width: "100%",
     textAlign: "center",
-    position: "absolute"
+    position: "absolute",
   },
   ".img-wrapper": {
     zIndex: 0,
     bottom: 0,
     width: "100%",
     display: "flex",
-    position: "absolute"
-  }
+    position: "absolute",
+  },
 }));
 
 export const StyledButton = styled(ButtonBase)({
   fontSize: 14,
   fontWeight: 600,
-  textDecoration: "underline"
+  textDecoration: "underline",
 });

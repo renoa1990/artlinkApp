@@ -27,14 +27,14 @@ export default function UserInfo({ user }: Props) {
         ...(downMd && {
           alignItems: "start",
           flexDirection: "column",
-          justifyContent: "flex-start"
-        })
-      }}>
-      <TableRowItem title="First Name" value={user.name.firstName} />
-      <TableRowItem title="Last Name" value={user.name.lastName} />
-      <TableRowItem title="Email" value={user.email} />
-      <TableRowItem title="Phone" value={user.phone} />
-      <TableRowItem title="Birth date" value={format(new Date(user.dateOfBirth), "dd MMM, yyyy")} />
+          justifyContent: "flex-start",
+        }),
+      }}
+    >
+      <TableRowItem title="이름" value={"개발자"} />
+      <TableRowItem title="이메일" value={"test@test.com "} />
+      <TableRowItem title="핸드폰" value={"0103339928"} />
+      <TableRowItem title="국가" value={"korea"} />
     </Card>
   );
 }

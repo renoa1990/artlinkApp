@@ -28,7 +28,11 @@ export default function Navigation() {
           </Paragraph>
 
           {item.list.map(({ Icon, count, href, title }) => (
-            <StyledNavLink href={href} key={title} isCurrentPath={pathname.includes(href)}>
+            <StyledNavLink
+              href={href}
+              key={title}
+              isCurrentPath={pathname.includes(href)}
+            >
               <FlexBox alignItems="center" gap={1}>
                 <Icon color="inherit" fontSize="small" className="nav-icon" />
                 <Span>{title}</Span>
@@ -45,34 +49,30 @@ export default function Navigation() {
 
 const MENUS = [
   {
-    title: "DASHBOARD",
+    title: "내정보",
+    list: [{ href: "/profile", title: "내 프로필", Icon: Person, count: 3 }],
+  },
+  {
+    title: "대시보드",
     list: [
-      { href: "/orders", title: "Orders", Icon: ShoppingBagOutlined, count: 5 },
+      {
+        href: "/create",
+        title: "공연등록",
+        Icon: ShoppingBagOutlined,
+        count: 5,
+      },
       {
         href: "/wish-list",
-        title: "Wishlist",
+        title: "찜목록",
         Icon: FavoriteBorder,
-        count: 19
+        count: 19,
       },
       {
         href: "/support-tickets",
-        title: "Support Tickets",
+        title: "문의하기",
         Icon: CustomerService,
-        count: 1
-      }
-    ]
+        count: 1,
+      },
+    ],
   },
-  {
-    title: "ACCOUNT SETTINGS",
-    list: [
-      { href: "/profile", title: "Profile Info", Icon: Person, count: 3 },
-      { href: "/address", title: "Addresses", Icon: Place, count: 16 },
-      {
-        href: "/payment-methods",
-        title: "Payment Methods",
-        Icon: CreditCard,
-        count: 4
-      }
-    ]
-  }
 ];
